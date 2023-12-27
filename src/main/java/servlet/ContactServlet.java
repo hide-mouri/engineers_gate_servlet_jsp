@@ -28,6 +28,8 @@ public class ContactServlet extends HttpServlet {
 		ContactBeans contactBeans = new ContactBeans();
 		if (session != null) {
 			contactBeans = (ContactBeans) session.getAttribute("contact");
+			// セッションクリア。
+			request.getSession().invalidate();
 		}
 
 		request.setAttribute("contact", contactBeans);
